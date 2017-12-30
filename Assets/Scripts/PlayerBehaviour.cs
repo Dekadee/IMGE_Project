@@ -5,13 +5,16 @@ using UnityEngine;
 public class PlayerBehaviour : MonoBehaviour {
 
     Transform player;
+
+    [SerializeField]
+    GameObject gO;
+
+    [SerializeField]
+    Slider slider;
     
 	// Use this for initialization
 	void Start () {
-
-        player = gameObject.GetComponent<Transform>();
-
-
+        player = gO.GetComponent<Transform>();
 	}
 	
 	// Update is called once per frame
@@ -36,11 +39,11 @@ public class PlayerBehaviour : MonoBehaviour {
         }
         #endregion
 
-        transform.Translate(10*Time.deltaTime, 0, 0);
+        player.Translate(slider.getSpeed()*10*Time.deltaTime, 0, 0);
     }
 
     public void ResetPosition()
     {
-        transform.position = new Vector3(0, 0, 0);
+        player.position = new Vector3(0, 0, 0);
     }
 }
