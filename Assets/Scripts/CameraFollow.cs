@@ -18,11 +18,17 @@ public class CameraFollow : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         offset = new Vector3(3, 10, 0);
-        transform.position = followed.transform.position + offset;
+        transform.position = followed.transform.position + followed.transform.rotation*offset;
+        transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x,
+                                              followed.transform.eulerAngles.y + 90,
+                                              transform.rotation.eulerAngles.z);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        transform.position = followed.transform.position + offset;
+        transform.position = followed.transform.position + followed.transform.rotation*offset;
+        transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x,
+                                              followed.transform.eulerAngles.y + 90,
+                                              transform.rotation.eulerAngles.z);
     }
 }

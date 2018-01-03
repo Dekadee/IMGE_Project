@@ -19,14 +19,14 @@ public class CompassProvider : MonoBehaviour {
         Input.compass.enabled = true;
         Input.location.Start();
         Debug.Log("Compass initialized");
-        heading = -Input.compass.magneticHeading;
-        oldHeading = -Input.compass.magneticHeading;
+        heading = Input.compass.magneticHeading;
+        oldHeading = Input.compass.magneticHeading;
     }
 	
 	// Update is called once per frame
 	void Update () {
 
-        heading = -Input.compass.magneticHeading;
+        heading = Input.compass.magneticHeading;
 
         //heading = oldHeading + 0.8f * (heading - oldHeading);
 
