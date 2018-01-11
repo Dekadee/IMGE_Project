@@ -23,9 +23,9 @@ public class CameraFollow : MonoBehaviour {
                                               followed.transform.eulerAngles.y + 90,
                                               transform.rotation.eulerAngles.z);
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void LateUpdate () {
         transform.position = followed.transform.position + followed.transform.rotation*offset;
         transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x,
                                               followed.transform.eulerAngles.y + 90,
