@@ -31,7 +31,6 @@ public class Slider : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointer
         Vector2 position = eventData.position;
         if (position.x > 50 && position.x < Screen.width - 50)
         {
-            Debug.Log("Slider");
             slider.rectTransform.position = new Vector2(position.x, slider.rectTransform.position.y);
         }
     }
