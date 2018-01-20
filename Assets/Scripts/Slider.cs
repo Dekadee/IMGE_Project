@@ -12,7 +12,7 @@ public class Slider : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointer
     // Use this for initialization
     void Start()
     {
-        Debug.Log(Screen.width);
+        slider.rectTransform.position = new Vector2(Screen.width / 2 , Screen.width *  0.2f);
     }
 
     // Update is called once per frame
@@ -23,7 +23,7 @@ public class Slider : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointer
 
     public float getSpeed()
     {
-        return (slider.rectTransform.position.x - 50) / (Screen.width - 100);
+        return (slider.rectTransform.position.x - 50) / (Screen.width - 100) + 0.5f;
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -34,7 +34,6 @@ public class Slider : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointer
             Debug.Log("Slider");
             slider.rectTransform.position = new Vector2(position.x, slider.rectTransform.position.y);
         }
-        Debug.Log(position.x);
     }
 
     public void OnEndDrag(PointerEventData eventData)
