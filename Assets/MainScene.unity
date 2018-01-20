@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.49641287, b: 0.5748173, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -153,7 +153,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6373442
 MonoBehaviour:
@@ -612,6 +612,7 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -627,7 +628,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 80, y: 90, z: 0}
 --- !u!45 &559298757
 Skybox:
@@ -713,9 +714,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!33 &584626286
@@ -736,7 +737,7 @@ Transform:
   m_LocalScale: {x: 100, y: 1, z: 100}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &626040667
 GameObject:
@@ -827,7 +828,7 @@ RectTransform:
   - {fileID: 201150018}
   - {fileID: 629672164}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -912,7 +913,7 @@ Transform:
   - {fileID: 241466492}
   - {fileID: 995677190}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &641491768
 MonoBehaviour:
@@ -1090,7 +1091,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &995677190 stripped
 Transform:
@@ -1162,3 +1163,75 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1001 &1966358279
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 114299578706244796, guid: 98d735f4e2c62484897d3def55f1a158,
+        type: 2}
+      propertyPath: projectileSpawnOffsets.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4676419635607456, guid: 98d735f4e2c62484897d3def55f1a158, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4676419635607456, guid: 98d735f4e2c62484897d3def55f1a158, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4676419635607456, guid: 98d735f4e2c62484897d3def55f1a158, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4676419635607456, guid: 98d735f4e2c62484897d3def55f1a158, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4676419635607456, guid: 98d735f4e2c62484897d3def55f1a158, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4676419635607456, guid: 98d735f4e2c62484897d3def55f1a158, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4676419635607456, guid: 98d735f4e2c62484897d3def55f1a158, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4676419635607456, guid: 98d735f4e2c62484897d3def55f1a158, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1807694703027204, guid: 98d735f4e2c62484897d3def55f1a158, type: 2}
+      propertyPath: m_Name
+      value: RedEnemyShip (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114299578706244796, guid: 98d735f4e2c62484897d3def55f1a158,
+        type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 641491766}
+    - target: {fileID: 114299578706244796, guid: 98d735f4e2c62484897d3def55f1a158,
+        type: 2}
+      propertyPath: speed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114299578706244796, guid: 98d735f4e2c62484897d3def55f1a158,
+        type: 2}
+      propertyPath: projectile
+      value: 
+      objectReference: {fileID: 1186543310294982, guid: 9610b32634c0355409b4b5991571a66b,
+        type: 2}
+    - target: {fileID: 114299578706244796, guid: 98d735f4e2c62484897d3def55f1a158,
+        type: 2}
+      propertyPath: projectileSpawnOffsets.Array.data[0].x
+      value: 0.4
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 98d735f4e2c62484897d3def55f1a158, type: 2}
+  m_IsPrefabParent: 0
