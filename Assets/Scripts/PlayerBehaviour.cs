@@ -19,15 +19,29 @@ public class PlayerBehaviour : MonoBehaviour {
     Vector2 canvasHeight;
 
     [SerializeField]
+    Image shieldbar;
+
+
+    [SerializeField]
     GameObject explosion;
 
     private float health;
-    
-	// Use this for initialization
-	void Start () {
+    private readonly float maxHealth = 100;
+
+    private float shield;
+    private readonly float maxShield = 100;
+
+    [SerializeField]
+    public float shieldRegenTimer;
+    float regenTimer;
+
+    // Use this for initialization
+    void Start () {
         player = gO.GetComponent<Transform>();
         health = 100.0f;
+        shield = 100.0f;
         canvasHeight = healthbar.GetComponent<RectTransform>().sizeDelta;
+        regenTimer = Time.time;
 	}
 	
 	// Update is called once per frame
@@ -53,8 +67,13 @@ public class PlayerBehaviour : MonoBehaviour {
         #endregion
 
         player.Translate(slider.getSpeed()*10*Time.deltaTime, 0, 0);
-        Debug.Log(health);
-        healthbar.GetComponent<RectTransform>().sizeDelta = new Vector2(canvasHeight.x, (health / 100.0f) * canvasHeight.y);
+        healthbar.GetComponent<RectTransform>().sizeDelta = new Vector2(canvasHeight.x, (health / maxHealth) * canvasHeight.y);
+        shieldbar.GetComponent<RectTransform>().sizeDelta = new Vector2(canvasHeight.x, (shield / maxShield) * canvasHeight.y);
+
+        if(shield < maxShield && Time.time > regenTimer)
+        {
+            regen(0.2f);
+        }
     }
 
     public void ResetPLayer()
@@ -68,37 +87,59 @@ public class PlayerBehaviour : MonoBehaviour {
         player.position = new Vector3(0, 0, 0);
     }
 
+    private void regen(float regen)
+    {
+        shield += regen;
+        if(shield >= maxShield)
+        {
+            shield = maxShield;
+        }
+
+    }
+
+    private void damage(float dmg)
+    {
+        regenTimer = Time.time + shieldRegenTimer;
+        if(shield > 0.0f)
+        {
+            shield -= dmg;
+            if(shield < 0)
+            {
+                shield = 0.0f;
+            }
+        }
+        else
+        {
+            health -= dmg;
+            if(health < 0.0f)
+            {
+                health = 0.0f;
+                //Death
+            }
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag.Equals("Projectile"))
         {
             Destroy(other.gameObject);
             Instantiate(explosion);
-            health -= 20.0f;
-            if(health < 0.0f)
-            {
-                health = 0.0f;
-            }
+            damage(20);
         }
         else if (other.gameObject.tag.Equals("Mine"))
         {
             Destroy(other.gameObject);
             Instantiate(explosion);
-            health -= 50.0f;
-            if (health < 0.0f)
-            {
-                health = 0.0f;
-            }
+            Handheld.Vibrate();
+            damage(50);
         }
         else if (other.gameObject.tag.Equals("Enemy"))
         {
             Destroy(other.gameObject);
             Instantiate(explosion);
-            health -= 100.0f;
-            if (health < 0.0f)
-            {
-                health = 0.0f;
-            }
+            Handheld.Vibrate();
+            damage(100);
         }
     }
 }
