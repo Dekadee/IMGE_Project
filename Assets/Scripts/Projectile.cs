@@ -25,7 +25,14 @@ public class Projectile : MonoBehaviour {
     {
         if (other.gameObject.tag.Equals("Enemy"))
         {
+            ScoreKeeping.score += 20;
             other.gameObject.GetComponent<EnemyInterface>().Damage(50);
+            Destroy(gameObject);
+        }
+        else if (other.gameObject.tag.Equals("Mine")){
+            ScoreKeeping.score += 5;
+            Destroy(other.gameObject);
+            //Instantiate() Explosion
             Destroy(gameObject);
         }
     }

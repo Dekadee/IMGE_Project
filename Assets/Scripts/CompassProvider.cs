@@ -14,6 +14,11 @@ public class CompassProvider : MonoBehaviour {
     [SerializeField]
     Text text;
 
+    [SerializeField]
+    Image image;
+
+    RectTransform imageTransform;
+
     // Use this for initialization
     void Start () {
         Input.compass.enabled = true;
@@ -21,6 +26,7 @@ public class CompassProvider : MonoBehaviour {
         Debug.Log("Compass initialized");
         heading = Input.compass.magneticHeading;
         oldHeading = Input.compass.magneticHeading;
+        imageTransform = image.GetComponent<RectTransform>();
     }
 	
 	// Update is called once per frame
@@ -28,11 +34,8 @@ public class CompassProvider : MonoBehaviour {
 
         heading = Input.compass.magneticHeading;
 
-        //heading = oldHeading + 0.8f * (heading - oldHeading);
-
-        //oldHeading = heading;
-
         transform.rotation = Quaternion.Slerp(transform.rotation,Quaternion.Euler(0, heading, 0),speed );
+        imageTransform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0,0, heading), speed);
 
         text.text = heading.ToString();
     }
