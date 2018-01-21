@@ -10,8 +10,11 @@ public class ShootingEnemy : MonoBehaviour,EnemyInterface {
 
     public float shootingDelay=0.3f;
 
-    public float maxRotationSpeed = 1;
-    public float speed = 1;
+    public float maxRotationSpeed = 3;
+    public float speed = 10;
+
+    public float retreatDistance = 50;
+    public int maxShotPerAttack = 3;
 
     private float lastShot=0;
     private int shotCount=0;
@@ -33,15 +36,24 @@ public class ShootingEnemy : MonoBehaviour,EnemyInterface {
         if (Mathf.Abs(angleToPlayer) < dif.magnitude && Time.time >= lastShot+shootingDelay && shipRenderer.isVisible){
             Shoot();
         }
-
-        if (angleToPlayer > maxRotationSpeed){
-            angleToPlayer = maxRotationSpeed;
-        }
-        else if (angleToPlayer < -maxRotationSpeed){
-            angleToPlayer = -maxRotationSpeed;
+        else if (!shipRenderer.isVisible){
+            shotCount = 0;
         }
 
-        transform.Rotate(new Vector3(0, angleToPlayer, 0));
+        float angleToRotate = angleToPlayer;
+        if (Mathf.Abs(angleToPlayer)>=180 || shotCount>=maxShotPerAttack){
+            Vector3 difRetreat=dif + player.transform.right*retreatDistance;
+            angleToRotate=Vector3.SignedAngle(difRetreat, transform.right, new Vector3(0, -1, 0));
+        }
+
+        if (angleToRotate > maxRotationSpeed){
+            angleToRotate = maxRotationSpeed;
+        }
+        else if (angleToRotate < -maxRotationSpeed){
+            angleToRotate = -maxRotationSpeed;
+        }
+
+        transform.Rotate(new Vector3(0, angleToRotate, 0));
 
         transform.Translate(new Vector3(Time.deltaTime*speed,0,0));
 	}
