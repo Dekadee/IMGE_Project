@@ -49,7 +49,7 @@ public class ShootingEnemy : MonoBehaviour {
         {
             Instantiate(projectile, transform.position + transform.rotation * offset, transform.rotation);
         }
-        Debug.Log("Shot "+shotCount);
+        //Debug.Log("Shot "+shotCount);
         lastShot = Time.time;
         shotCount++;
     }

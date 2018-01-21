@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 198487733643175808}
   - component: {fileID: 199218400644000594}
   - component: {fileID: 82893016498565760}
+  - component: {fileID: 114770051641305814}
   m_Layer: 0
   m_Name: Explosion
   m_TagString: Untagged
@@ -122,6 +123,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &114770051641305814
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1792152640934206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7b8b5d178e67f54bb99860b024364bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!198 &198487733643175808
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -3512,7 +3524,7 @@ ParticleSystemRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 3
+  m_SelectedEditorRenderState: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
