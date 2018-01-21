@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SmartEnemy : MonoBehaviour {
+public class SmartEnemy : MonoBehaviour, EnemyInterface {
 
     public GameObject target;
 
@@ -11,8 +11,10 @@ public class SmartEnemy : MonoBehaviour {
 
     Vector3 returnPoint;
 
-	// Use this for initialization
-	void Start () {
+    private float health = 100;
+
+    // Use this for initialization
+    void Start () {
         //Position wird zufällig bestimmt
         Vector2 rand = Random.insideUnitCircle * 100;
         transform.position = new Vector3(rand.x, 0, rand.y);
@@ -54,4 +56,13 @@ public class SmartEnemy : MonoBehaviour {
             }
         }
 	}
+
+    public void Damage(float dmg)
+    {
+        health -= dmg;
+        if (health < 0)
+        {
+            Destroy(gameObject);
+        }
+    }
 }

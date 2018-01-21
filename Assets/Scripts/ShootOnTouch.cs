@@ -16,7 +16,7 @@ public class ShootOnTouch : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.touchCount > touchCount){
+        if (Input.touchCount > touchCount || Input.GetKey("space")){
             foreach (Vector3 offset in spawnOffsets){
                 Instantiate(projectile, transform.position + transform.rotation * offset, transform.rotation);
             }

@@ -2,14 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DumbEnemy : MonoBehaviour {
+public class DumbEnemy : MonoBehaviour, EnemyInterface {
 
     Vector3[] points;
 
     int nextTarget;
 
-	// Use this for initialization
-	void Start () {
+    private float health = 100;
+
+    
+
+    // Use this for initialization
+    void Start () {
         Vector2 rand = Random.insideUnitCircle * 100;
         transform.position = new Vector3(rand.x, 0, rand.y);
         points = new Vector3[5];
@@ -32,5 +36,14 @@ public class DumbEnemy : MonoBehaviour {
         Vector3 targetDir = points[nextTarget] - transform.position;
         Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, 10 * Time.deltaTime, 0.0F);
         transform.rotation = Quaternion.LookRotation(newDir);
+    }
+
+    public void Damage(float dmg)
+    {
+        health -= dmg;
+        if (health < 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }

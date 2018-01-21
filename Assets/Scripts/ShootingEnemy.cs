@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShootingEnemy : MonoBehaviour {
+public class ShootingEnemy : MonoBehaviour,EnemyInterface {
     public GameObject player;
 
     public GameObject projectile;
@@ -15,6 +15,8 @@ public class ShootingEnemy : MonoBehaviour {
 
     private float lastShot=0;
     private int shotCount=0;
+
+    private float health = 100;
 
     private Renderer shipRenderer;
 
@@ -52,5 +54,14 @@ public class ShootingEnemy : MonoBehaviour {
         //Debug.Log("Shot "+shotCount);
         lastShot = Time.time;
         shotCount++;
+    }
+
+    public void Damage(float dmg)
+    {
+        health -= dmg;
+        if(health < 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }

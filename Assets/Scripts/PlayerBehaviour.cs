@@ -15,21 +15,18 @@ public class PlayerBehaviour : MonoBehaviour {
     Slider slider;
 
     [SerializeField]
-    Image healthbar;
+    Image healthbar,shieldbar;
     Vector2 canvasHeight;
 
-    [SerializeField]
-    Image shieldbar;
-
 
     [SerializeField]
-    GameObject explosion;
+    GameObject explosion, shieldExplosion;
 
     private float health;
     private readonly float maxHealth = 100;
 
     private float shield;
-    private readonly float maxShield = 100;
+    private readonly float maxShield = 200;
 
     [SerializeField]
     public float shieldRegenTimer;
@@ -102,6 +99,7 @@ public class PlayerBehaviour : MonoBehaviour {
         regenTimer = Time.time + shieldRegenTimer;
         if(shield > 0.0f)
         {
+            Instantiate(shieldExplosion, transform.position, Quaternion.identity);
             shield -= dmg;
             if(shield < 0)
             {
@@ -111,7 +109,8 @@ public class PlayerBehaviour : MonoBehaviour {
         else
         {
             health -= dmg;
-            if(health < 0.0f)
+            Instantiate(explosion, transform.position, Quaternion.identity);
+            if (health < 0.0f)
             {
                 health = 0.0f;
                 //Death
@@ -124,20 +123,17 @@ public class PlayerBehaviour : MonoBehaviour {
         if (other.gameObject.tag.Equals("Projectile"))
         {
             Destroy(other.gameObject);
-            Instantiate(explosion);
             damage(20);
         }
         else if (other.gameObject.tag.Equals("Mine"))
         {
             Destroy(other.gameObject);
-            Instantiate(explosion);
             Handheld.Vibrate();
             damage(50);
         }
         else if (other.gameObject.tag.Equals("Enemy"))
         {
             Destroy(other.gameObject);
-            Instantiate(explosion);
             Handheld.Vibrate();
             damage(100);
         }

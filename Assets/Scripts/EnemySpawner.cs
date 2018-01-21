@@ -9,11 +9,14 @@ public class EnemySpawner : MonoBehaviour {
     [SerializeField]
     GameObject smartEnemyPrefab;
     [SerializeField]
-    GameObject player;
+    GameObject shootingEnemy;
 
     private readonly int START_ENEMY_DUMB = 20;
 
     private readonly int START_ENEMY_SMART = 20;
+
+    private readonly int START_ENEMY_SHOOTING = 5;
+
 
     // Use this for initialization
     void Start () {
@@ -27,6 +30,11 @@ public class EnemySpawner : MonoBehaviour {
         for (int i = 0; i < START_ENEMY_SMART; i++)
         {
             Instantiate(smartEnemyPrefab);
+        }
+
+        for (int i = 0; i < START_ENEMY_SHOOTING; i++)
+        {
+            Instantiate(shootingEnemy);
         }
     }
 	

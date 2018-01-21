@@ -40,6 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4676419635607456}
   - component: {fileID: 114299578706244796}
+  - component: {fileID: 65285051746253710}
   m_Layer: 0
   m_Name: RedEnemyShip
   m_TagString: Enemy
@@ -109,6 +110,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.755
+--- !u!65 &65285051746253710
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1807694703027204}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114152774188670062
 MonoBehaviour:
   m_ObjectHideFlags: 1

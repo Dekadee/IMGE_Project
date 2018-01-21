@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4669115527281162}
   - component: {fileID: 114897848947464948}
+  - component: {fileID: 65997072284340016}
   m_Layer: 0
   m_Name: SmartEnemy
   m_TagString: Enemy
@@ -115,6 +116,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1959455184213652}
   m_Mesh: {fileID: 4300000, guid: 8dd6eab450e1de648b0f1a7286b59080, type: 3}
+--- !u!65 &65997072284340016
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1396112913316904}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114897848947464948
 MonoBehaviour:
   m_ObjectHideFlags: 1

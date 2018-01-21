@@ -245,7 +245,7 @@ GameObject:
   - component: {fileID: 135036179813016746}
   m_Layer: 0
   m_Name: SpaceMine
-  m_TagString: Untagged
+  m_TagString: Mine
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
