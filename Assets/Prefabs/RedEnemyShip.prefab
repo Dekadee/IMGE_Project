@@ -135,8 +135,8 @@ MonoBehaviour:
   projectile: {fileID: 1186543310294982, guid: 9610b32634c0355409b4b5991571a66b, type: 2}
   projectileSpawnOffsets: []
   shootingDelay: 0.3
-  maxRotationSpeed: 1
-  speed: 1
+  maxRotationSpeed: 10
+  speed: 10
 --- !u!114 &114874118247915110
 MonoBehaviour:
   m_ObjectHideFlags: 1
