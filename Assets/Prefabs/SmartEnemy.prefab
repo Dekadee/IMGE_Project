@@ -140,3 +140,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  projectile: {fileID: 1878282583016716, guid: 173b6fb4d853de64fb8b4628ba8808a7, type: 2}

@@ -6,6 +6,8 @@ public class SmartEnemy : MonoBehaviour, EnemyInterface {
 
     public GameObject target;
 
+    public GameObject projectile;
+
     bool circling = false;
     bool lockedOn = false;
 
@@ -35,6 +37,7 @@ public class SmartEnemy : MonoBehaviour, EnemyInterface {
             //Wenn der Gegner nah genug ist dreht er um und fängt aus einer neuen Richtung an
             if ((transform.position - target.transform.position).magnitude < 5.0f)
             {
+                Instantiate(projectile, transform.position - new Vector3(0,0,-2),Quaternion.LookRotation(target.transform.position - transform.position));
                 circling = true;
                 Vector2 rand = Random.insideUnitCircle * 10;
                 Vector3 offset = new Vector3(rand.x, 0, rand.y); //Zufalls punkt in einem Radius
