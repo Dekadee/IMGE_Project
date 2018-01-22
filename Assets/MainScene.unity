@@ -1034,6 +1034,9 @@ MonoBehaviour:
   spawnOffsets:
   - {x: 0.4, y: 0, z: -0.2}
   - {x: 0.4, y: 0, z: 0.2}
+  extraSpawnOffstes:
+  - {x: 0.2, y: 0, z: -0.7}
+  - {x: 0.2, y: 0, z: 0.7}
 --- !u!65 &641491771
 BoxCollider:
   m_ObjectHideFlags: 0

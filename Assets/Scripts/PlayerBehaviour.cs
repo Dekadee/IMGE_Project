@@ -35,8 +35,8 @@ public class PlayerBehaviour : MonoBehaviour {
     // Use this for initialization
     void Start () {
         player = gO.GetComponent<Transform>();
-        health = 100.0f;
-        shield = 100.0f;
+        health = maxHealth;
+        shield = maxShield;
         canvasHeight = healthbar.GetComponent<RectTransform>().sizeDelta;
         regenTimer = Time.time;
 	}
