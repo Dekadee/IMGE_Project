@@ -35,7 +35,7 @@ public class CompassProvider : MonoBehaviour {
         heading = Input.compass.magneticHeading;
 
         transform.rotation = Quaternion.Slerp(transform.rotation,Quaternion.Euler(0, heading, 0),speed );
-        imageTransform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0,0, heading), speed);
+        imageTransform.rotation = Quaternion.Slerp(imageTransform.rotation, Quaternion.Euler(0,0,heading), speed);
 
         text.text = heading.ToString();
     }
