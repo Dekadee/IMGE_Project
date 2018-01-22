@@ -44,7 +44,7 @@ public class ShootingEnemy : MonoBehaviour,EnemyInterface {
         }
 
         float angleToRotate = angleToPlayer;
-        Debug.Log("Angle "+angleToPlayer);
+        //Debug.Log("Angle "+angleToPlayer);
         if (Mathf.Abs(angleToPlayer)>=180 || shotCount>=maxShotPerAttack){
             Vector3 difRetreat=dif + player.transform.right*retreatDistance;
             angleToRotate=Vector3.SignedAngle(difRetreat, transform.right, new Vector3(0, -1, 0));
