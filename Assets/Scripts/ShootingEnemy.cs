@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ShootingEnemy : MonoBehaviour,EnemyInterface {
+    public ShootingEnemy prefab;
     public GameObject player;
 
     public GameObject projectile;
@@ -13,12 +14,13 @@ public class ShootingEnemy : MonoBehaviour,EnemyInterface {
     public float maxRotationSpeed = 3;
     public float speed = 10;
 
-    public float retreatDistance = 50;
+    public float retreatDistance = 100;
     public int maxShotPerAttack = 3;
 
     private float lastShot=0;
     private int shotCount=0;
 
+    private float startHealth = 100;
     private float health = 100;
 
     private Renderer shipRenderer;
@@ -26,6 +28,7 @@ public class ShootingEnemy : MonoBehaviour,EnemyInterface {
 	// Use this for initialization
 	void Start () {
         shipRenderer = GetComponentInChildren<Renderer>();
+        health = startHealth;
 	}
 	
 	// Update is called once per frame
@@ -41,6 +44,7 @@ public class ShootingEnemy : MonoBehaviour,EnemyInterface {
         }
 
         float angleToRotate = angleToPlayer;
+        Debug.Log("Angle "+angleToPlayer);
         if (Mathf.Abs(angleToPlayer)>=180 || shotCount>=maxShotPerAttack){
             Vector3 difRetreat=dif + player.transform.right*retreatDistance;
             angleToRotate=Vector3.SignedAngle(difRetreat, transform.right, new Vector3(0, -1, 0));
@@ -75,5 +79,12 @@ public class ShootingEnemy : MonoBehaviour,EnemyInterface {
         {
             Destroy(gameObject);
         }
+    }
+
+    private void OnDestroy()
+    {
+        ShootingEnemy newEnemy = Instantiate<ShootingEnemy>(prefab, player.transform.position + player.transform.right * retreatDistance, transform.rotation);
+        newEnemy.player = player;
+        newEnemy.prefab = prefab;
     }
 }
